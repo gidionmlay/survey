@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Wild Sand - Main Background */
+    --background: 190 29% 92%; 
+    /* Mirage - Foreground/Headers */
+    --foreground: 204 32% 13%; 
+
+    /* Wild Sand - Card background */
+    --card: 190 29% 92%;
+    --card-foreground: 204 32% 13%;
+
+    --popover: 190 29% 92%;
+    --popover-foreground: 204 32% 13%;
+
+    /* Blaze Orange - Primary action color */
+    --primary: 15 100% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 190 15% 85%;
+    --secondary-foreground: 204 32% 13%;
+
+    --muted: 190 15% 85%;
+    --muted-foreground: 204 15% 45%;
+
+    /* Deep Sea Green - Accent color */
+    --accent: 185 85% 18%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Neutral borders */
+    --border: 190 15% 80%;
+    --input: 190 15% 80%;
+    
+    /* Reveal Focus Ring as Blaze Orange */
+    --ring: 15 100% 51%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    /* Dark mode wasn't explicitly requested to be different, 
+       so we'll map the Dark variation of the theme logically */
+    --background: 204 32% 13%; /* Mirage background */
+    --foreground: 190 29% 92%; /* Wild Sand text */
+
+    --card: 204 25% 16%;
+    --card-foreground: 190 29% 92%;
+
+    --popover: 204 25% 16%;
+    --popover-foreground: 190 29% 92%;
+
+    /* Blaze Orange */
+    --primary: 15 100% 51%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 204 20% 22%;
+    --secondary-foreground: 190 29% 92%;
+
+    --muted: 204 20% 22%;
+    --muted-foreground: 190 15% 65%;
+
+    /* Deep Sea Green */
+    --accent: 185 85% 18%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 204 20% 25%;
+    --input: 204 20% 25%;
+    --ring: 15 100% 51%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-['Outfit',sans-serif] antialiased;
+    /* Hide standard scrollbar for immersive experience */
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Glassmorphism utility */
+.glass {
+  @apply bg-white/70 dark:bg-black/50 backdrop-blur-md border border-white/20 dark:border-white/10 shadow-xl;
+}
+
+.glass-card {
+  @apply bg-white/40 dark:bg-white/5 backdrop-blur-lg border border-white/40 dark:border-white/10 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)] transition-all duration-300;
+}
+.glass-card:hover {
+  @apply shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] bg-white/60 dark:bg-white/10;
+}
+
+/* Custom Selection style */
+::selection {
+  @apply bg-primary/30 text-foreground;
+}
