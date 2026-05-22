@@ -1,11 +1,25 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { useSurvey } from '../../context/SurveyContext';
 import { translations } from '../../i18n/translations';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import { submitSurvey } from '../../services/api';
-
 import { questions } from '../../data/questions';
+
+interface BooleanAnswer {
+  choice: string;
+  text?: string;
+}
+
+function isBooleanAnswer(v: unknown): v is BooleanAnswer {
+  return (
+    v !== null &&
+    typeof v === 'object' &&
+    !Array.isArray(v) &&
+    'choice' in v &&
+    typeof (v as Record<string, unknown>).choice === 'string'
+  );
+}
 
 export const CompletionScreen: React.FC = () => {
   const { language, firstName, email, responses } = useSurvey();
@@ -21,8 +35,7 @@ export const CompletionScreen: React.FC = () => {
   const hasSubmittedRef = useRef(false);
 
   const submitData = useCallback(async (isRetry = false) => {
-    // Guard: block any call after the first, unless this is an explicit retry
-    // from the error screen (which resets the lock first).
+    // Guard: block any call after the first, unless this is an explicit retry.
     if (hasSubmittedRef.current && !isRetry) {
       console.warn('[CompletionScreen] Submission blocked — already submitted.');
       return;
@@ -33,7 +46,7 @@ export const CompletionScreen: React.FC = () => {
     setError(null);
     try {
       // Map responses to readable English labels for backend analytics readiness
-      const formattedResponses: Record<string, any> = {};
+      const formattedResponses: Record<string, unknown> = {};
 
       for (const [qId, answer] of Object.entries(responses)) {
         const questionDef = questions.find(q => q.id === qId);
@@ -44,24 +57,26 @@ export const CompletionScreen: React.FC = () => {
 
         // Multi-select array mapping
         if (Array.isArray(answer)) {
-          formattedResponses[qId] = answer.map(id => {
+          formattedResponses[qId] = (answer as string[]).map(id => {
             const opt = questionDef.options?.find(o => o.id === id);
-            return opt ? opt.label['en'] : id;
+            return opt ? opt.label.en : id;
           });
         }
         // Boolean-text object mapping
-        else if (typeof answer === 'object' && answer !== null && 'choice' in answer) {
+        else if (isBooleanAnswer(answer)) {
           const opt = questionDef.options?.find(o => o.id === answer.choice);
-          const choiceLabel = opt ? opt.label['en'] : answer.choice;
+          const choiceLabel = opt ? opt.label.en : answer.choice;
           formattedResponses[qId] = {
             choice: choiceLabel,
-            text: answer.text || ''
+            text: answer.text ?? ''
           };
         }
-        // Single choice mapping
-        else {
+        // Single choice / scale / textarea mapping
+        else if (typeof answer === 'string') {
           const opt = questionDef.options?.find(o => o.id === answer);
-          formattedResponses[qId] = opt ? opt.label['en'] : answer;
+          formattedResponses[qId] = opt ? opt.label.en : answer;
+        } else {
+          formattedResponses[qId] = answer;
         }
       }
 
@@ -73,7 +88,10 @@ export const CompletionScreen: React.FC = () => {
         responses: formattedResponses
       };
 
-      await submitSurvey(payload);
+      const submitPromise = submitSurvey(payload);
+      const minWaitPromise = new Promise(resolve => setTimeout(resolve, 2000));
+      
+      await Promise.all([submitPromise, minWaitPromise]);
       setIsSubmitting(false);
     } catch (err) {
       console.error('Survey submission failed:', err);
@@ -106,13 +124,13 @@ export const CompletionScreen: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="flex flex-col items-center justify-center min-h-[60vh] text-center"
         >
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 2, ease: "linear" }}
-            className="mb-8"
-          >
-            <Loader2 className="w-12 h-12 text-primary/50" />
-          </motion.div>
+          <div className="mb-12">
+            <div className="typewriter">
+              <div className="slide"><i></i></div>
+              <div className="paper"></div>
+              <div className="keyboard"></div>
+            </div>
+          </div>
           <h2 className="text-2xl font-light text-muted-foreground">
             {language === 'en' ? 'Submitting your reflections...' : 'Tunawasilisha tafakari zako...'}
           </h2>
@@ -140,7 +158,7 @@ export const CompletionScreen: React.FC = () => {
           </button>
         </motion.div>
       ) : (
-        <motion.div 
+        <motion.div
           key="complete"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,7 +174,7 @@ export const CompletionScreen: React.FC = () => {
           <h1 className="text-4xl md:text-5xl font-light text-accent mb-8 tracking-tight">
             {titleText}
           </h1>
-          
+
           <div className="space-y-6 text-lg md:text-xl text-muted-foreground font-light leading-relaxed mb-12">
             {t.message.split('\n\n').map((paragraph: string, idx: number) => (
               <p key={idx}>{paragraph}</p>
@@ -165,7 +183,6 @@ export const CompletionScreen: React.FC = () => {
 
           <button
             onClick={() => {
-              // Optionally reset survey here
               localStorage.removeItem('cadence_survey_state');
               window.location.reload();
             }}

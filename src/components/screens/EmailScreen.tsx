@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSurvey } from '../../context/SurveyContext';
 import { translations } from '../../i18n/translations';
 import { motion, AnimatePresence } from 'framer-motion';

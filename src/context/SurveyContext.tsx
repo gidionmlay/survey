@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
+import type { ReactNode } from 'react';
 import { questions } from '../data/questions';
-
-type Language = 'en' | 'sw';
+import type { Language } from '../types/survey';
 
 interface SurveyContextType {
   language: Language;
@@ -14,8 +14,8 @@ interface SurveyContextType {
   setFirstName: (name: string) => void;
   email: string;
   setEmail: (email: string) => void;
-  responses: Record<string, any>;
-  setResponse: (questionId: string, answer: any) => void;
+  responses: Record<string, unknown>;
+  setResponse: (questionId: string, answer: unknown) => void;
   totalSteps: number;
 }
 
@@ -26,19 +26,28 @@ export const SurveyProvider = ({ children }: { children: ReactNode }) => {
   const [step, setStepState] = useState(0);
   const [firstName, setFirstNameState] = useState('');
   const [email, setEmailState] = useState('');
-  const [responses, setResponsesState] = useState<Record<string, any>>({});
+  const [responses, setResponsesState] = useState<Record<string, unknown>>({});
 
   // Load from local storage on mount
   useEffect(() => {
     const saved = localStorage.getItem('cadence_survey_state');
     if (saved) {
       try {
-        const parsed = JSON.parse(saved);
-        if (parsed.language) setLanguageState(parsed.language);
-        if (parsed.step !== undefined) setStepState(parsed.step);
-        if (parsed.firstName) setFirstNameState(parsed.firstName);
-        if (parsed.email) setEmailState(parsed.email);
-        if (parsed.responses) setResponsesState(parsed.responses);
+        const parsed: unknown = JSON.parse(saved);
+        if (
+          parsed !== null &&
+          typeof parsed === 'object' &&
+          !Array.isArray(parsed)
+        ) {
+          const p = parsed as Record<string, unknown>;
+          if (p.language === 'en' || p.language === 'sw') setLanguageState(p.language);
+          if (typeof p.step === 'number') setStepState(p.step);
+          if (typeof p.firstName === 'string') setFirstNameState(p.firstName);
+          if (typeof p.email === 'string') setEmailState(p.email);
+          if (p.responses !== null && typeof p.responses === 'object' && !Array.isArray(p.responses)) {
+            setResponsesState(p.responses as Record<string, unknown>);
+          }
+        }
       } catch (e) {
         console.error("Failed to parse saved survey state", e);
       }
@@ -57,13 +66,14 @@ export const SurveyProvider = ({ children }: { children: ReactNode }) => {
   const nextStep = () => setStepState(prev => prev + 1);
   const prevStep = () => setStepState(prev => Math.max(0, prev - 1));
   const setFirstName = (name: string) => setFirstNameState(name);
-  const setEmail = (email: string) => setEmailState(email);
-  const setResponse = (id: string, answer: any) => {
+  const setEmail = (e: string) => setEmailState(e);
+  const setResponse = (id: string, answer: unknown) => {
     setResponsesState(prev => ({ ...prev, [id]: answer }));
   };
 
-  // 0: Welcome, 1: Name, 2: Email, 3-18: Questions, 19: Completion
-  const totalSteps = 3 + questions.length; 
+  // 0: Welcome, 1: Name, 2: Email, 3-(3+N-1): Questions, (3+N): Completion
+  // Stage names: awareness | reflection | exploration | vision
+  const totalSteps = 3 + questions.length;
 
   return (
     <SurveyContext.Provider value={{

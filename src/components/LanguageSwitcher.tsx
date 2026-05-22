@@ -1,6 +1,4 @@
-import React from 'react';
 import { useSurvey } from '../context/SurveyContext';
-import { motion } from 'framer-motion';
 
 export const LanguageSwitcher: React.FC = () => {
   const { language, setLanguage } = useSurvey();
@@ -10,8 +8,8 @@ export const LanguageSwitcher: React.FC = () => {
       <button
         onClick={() => setLanguage('en')}
         className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-          language === 'en' 
-            ? 'bg-white dark:bg-white/10 text-primary shadow-sm' 
+          language === 'en'
+            ? 'bg-white dark:bg-white/10 text-primary shadow-sm'
             : 'text-muted-foreground hover:text-foreground'
         }`}
       >
@@ -20,8 +18,8 @@ export const LanguageSwitcher: React.FC = () => {
       <button
         onClick={() => setLanguage('sw')}
         className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
-          language === 'sw' 
-            ? 'bg-white dark:bg-white/10 text-primary shadow-sm' 
+          language === 'sw'
+            ? 'bg-white dark:bg-white/10 text-primary shadow-sm'
             : 'text-muted-foreground hover:text-foreground'
         }`}
       >
