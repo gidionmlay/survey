@@ -44,7 +44,7 @@ export const NameScreen: React.FC = () => {
           onKeyDown={handleKeyDown}
           placeholder={t.placeholder}
           className={`w-full text-2xl bg-transparent border-b-2 py-4 focus:outline-none transition-colors duration-300 ${
-            error ? 'border-destructive' : 'border-border focus:border-primary text-foreground'
+            error ? 'border-destructive' : 'border-border focus:border-secondary text-foreground'
           }`}
           autoFocus
         />
@@ -58,7 +58,7 @@ export const NameScreen: React.FC = () => {
       <div className="flex justify-end">
         <button
           onClick={handleNext}
-          className="group inline-flex items-center gap-2 px-6 py-3 bg-primary/10 text-primary rounded-full font-medium transition-all hover:bg-primary hover:text-white"
+          className="group inline-flex items-center gap-2 px-6 py-3 bg-secondary/15 text-secondary rounded-full font-medium transition-all hover:bg-secondary hover:text-secondary-foreground dark:bg-secondary/30 dark:text-primary dark:hover:bg-secondary dark:hover:text-secondary-foreground"
         >
           {t.next}
           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

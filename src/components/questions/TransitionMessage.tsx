@@ -8,8 +8,8 @@ interface Props {
 
 const variantStyles: Record<NonNullable<Props['variant']>, string> = {
   calm:         'text-muted-foreground/80 italic',
-  reflective:   'text-accent/80 italic',
-  encouraging:  'text-primary/80 italic',
+  reflective:   'text-secondary/90 dark:text-accent/90 italic',
+  encouraging:  'text-secondary dark:text-primary italic',
 };
 
 /**

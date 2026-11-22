@@ -6,77 +6,87 @@
 
 @layer base {
   :root {
-    /* Wild Sand - Main Background */
-    --background: 190 29% 92%; 
-    /* Mirage - Foreground/Headers */
-    --foreground: 204 32% 13%; 
+    /* Neutral (#F8F8FF) - Main Background */
+    --background: 240 100% 99%;
+    /* Text / Dark (#1A1A3E) - Foreground/Headers */
+    --foreground: 240 41% 17%;
 
-    /* Wild Sand - Card background */
-    --card: 190 29% 92%;
-    --card-foreground: 204 32% 13%;
+    /* Neutral (#F8F8FF) - Card background */
+    --card: 240 100% 99%;
+    --card-foreground: 240 41% 17%;
 
-    --popover: 190 29% 92%;
-    --popover-foreground: 204 32% 13%;
+    --popover: 240 100% 99%;
+    --popover-foreground: 240 41% 17%;
 
-    /* Blaze Orange - Primary action color */
-    --primary: 15 100% 51%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary (#CCCCFF) - Brand surfaces, hero areas */
+    --primary: 240 100% 90%;
+    --primary-foreground: 240 41% 17%;
 
-    --secondary: 190 15% 85%;
-    --secondary-foreground: 204 32% 13%;
+    /* Secondary (#6666CC) - Logo note, buttons, links */
+    --secondary: 240 50% 60%;
+    --secondary-foreground: 240 100% 99%;
 
-    --muted: 190 15% 85%;
-    --muted-foreground: 204 15% 45%;
+    --muted: 240 45% 94%;
+    --muted-foreground: 240 25% 42%;
 
-    /* Deep Sea Green - Accent color */
-    --accent: 185 85% 18%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent (#B2F0E8) - Note on dark, success tints */
+    --accent: 172 67% 82%;
+    --accent-foreground: 240 41% 17%;
+
+    /* Energy (#FFD580) - Key CTAs, highlights */
+    --energy: 40 100% 75%;
+    --energy-foreground: 240 41% 17%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Neutral borders */
-    --border: 190 15% 80%;
-    --input: 190 15% 80%;
-    
-    /* Reveal Focus Ring as Blaze Orange */
-    --ring: 15 100% 51%;
+    /* Soft lavender-neutral borders */
+    --border: 240 45% 88%;
+    --input: 240 45% 88%;
+
+    /* Focus Ring as Secondary (#6666CC) */
+    --ring: 240 50% 60%;
 
     --radius: 1rem;
   }
 
   .dark {
-    /* Dark mode wasn't explicitly requested to be different, 
-       so we'll map the Dark variation of the theme logically */
-    --background: 204 32% 13%; /* Mirage background */
-    --foreground: 190 29% 92%; /* Wild Sand text */
+    /* Text / Dark (#1A1A3E) - Dark mode background */
+    --background: 240 41% 17%;
+    /* Neutral (#F8F8FF) - Dark mode text */
+    --foreground: 240 100% 99%;
 
-    --card: 204 25% 16%;
-    --card-foreground: 190 29% 92%;
+    --card: 240 39% 21%;
+    --card-foreground: 240 100% 99%;
 
-    --popover: 204 25% 16%;
-    --popover-foreground: 190 29% 92%;
+    --popover: 240 39% 21%;
+    --popover-foreground: 240 100% 99%;
 
-    /* Blaze Orange */
-    --primary: 15 100% 51%;
-    --primary-foreground: 0 0% 100%;
+    /* Primary (#CCCCFF) - Brand surfaces */
+    --primary: 240 100% 90%;
+    --primary-foreground: 240 41% 17%;
 
-    --secondary: 204 20% 22%;
-    --secondary-foreground: 190 29% 92%;
+    /* Secondary (#6666CC) - Buttons, links */
+    --secondary: 240 50% 60%;
+    --secondary-foreground: 240 100% 99%;
 
-    --muted: 204 20% 22%;
-    --muted-foreground: 190 15% 65%;
+    --muted: 240 32% 26%;
+    --muted-foreground: 240 35% 78%;
 
-    /* Deep Sea Green */
-    --accent: 185 85% 18%;
-    --accent-foreground: 0 0% 100%;
+    /* Accent (#B2F0E8) - Note on dark, success tints */
+    --accent: 172 67% 82%;
+    --accent-foreground: 240 41% 17%;
+
+    /* Energy (#FFD580) - Key CTAs, highlights */
+    --energy: 40 100% 75%;
+    --energy-foreground: 240 41% 17%;
 
     --destructive: 0 62% 30%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 204 20% 25%;
-    --input: 204 20% 25%;
-    --ring: 15 100% 51%;
+    --border: 240 30% 29%;
+    --input: 240 30% 29%;
+    --ring: 240 100% 90%;
   }
 }
 
@@ -109,17 +119,17 @@
 
 /* Custom Selection style */
 ::selection {
-  @apply bg-primary/30 text-foreground;
+  @apply bg-primary/60 text-foreground;
 }
 
 /* From Uiverse.io by uxRakhal */ 
 .typewriter {
-  --blue: #5cbbff;
-  --blue-dark: #162d72;
-  --key: #fff;
-  --paper: #eef0fd;
-  --text: #00000049;
-  --tool: #ffbb00;
+  --blue: #CCCCFF;
+  --blue-dark: #6666CC;
+  --key: #F8F8FF;
+  --paper: #F8F8FF;
+  --text: rgba(26, 26, 62, 0.28);
+  --tool: #FFD580;
   --duration: 3s;
   position: relative;
   -webkit-animation: bounce05 var(--duration) linear infinite;

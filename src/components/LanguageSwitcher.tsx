@@ -9,7 +9,7 @@ export const LanguageSwitcher: React.FC = () => {
         onClick={() => setLanguage('en')}
         className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
           language === 'en'
-            ? 'bg-white dark:bg-white/10 text-primary shadow-sm'
+            ? 'bg-white dark:bg-white/10 text-secondary dark:text-accent shadow-sm'
             : 'text-muted-foreground hover:text-foreground'
         }`}
       >
@@ -19,7 +19,7 @@ export const LanguageSwitcher: React.FC = () => {
         onClick={() => setLanguage('sw')}
         className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${
           language === 'sw'
-            ? 'bg-white dark:bg-white/10 text-primary shadow-sm'
+            ? 'bg-white dark:bg-white/10 text-secondary dark:text-accent shadow-sm'
             : 'text-muted-foreground hover:text-foreground'
         }`}
       >

@@ -273,7 +273,7 @@ export const QuestionRenderer: React.FC<Props> = ({ question }) => {
                       className="
                         flex items-center gap-2 text-sm text-muted-foreground
                         hover:text-foreground transition-colors duration-200
-                        focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded
+                        focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded
                         mb-4 mt-4
                       "
                       aria-expanded={showOptional}
@@ -305,7 +305,7 @@ export const QuestionRenderer: React.FC<Props> = ({ question }) => {
                             onChange={(e) => setHybridText(e.target.value)}
                             className="
                               w-full min-h-[120px] p-5 bg-card/50 border-2 border-border rounded-2xl
-                              focus:outline-none focus:border-primary focus:bg-card
+                              focus:outline-none focus:border-secondary focus:bg-card
                               resize-none transition-all duration-300
                               text-base font-light leading-relaxed text-foreground
                               placeholder:text-muted-foreground/60
@@ -385,7 +385,7 @@ export const QuestionRenderer: React.FC<Props> = ({ question }) => {
           className="
             group inline-flex items-center gap-2 px-4 py-2.5
             text-muted-foreground hover:text-foreground
-            transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded-full
+            transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-secondary rounded-full
             text-sm
           "
           aria-label="Go back to previous step"
@@ -404,9 +404,10 @@ export const QuestionRenderer: React.FC<Props> = ({ question }) => {
             onClick={handleNext}
             className="
               group inline-flex items-center gap-2 px-6 py-3
-              bg-primary/10 text-primary rounded-full font-medium
-              transition-all duration-300 hover:bg-primary hover:text-white
-              focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30
+              bg-secondary/15 text-secondary rounded-full font-medium
+              transition-all duration-300 hover:bg-secondary hover:text-secondary-foreground
+              dark:bg-secondary/30 dark:text-primary dark:hover:bg-secondary dark:hover:text-secondary-foreground
+              focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/30
               text-sm
             "
             aria-label="Go to next step"

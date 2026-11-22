@@ -24,10 +24,10 @@ export const SingleChoiceQuestion = ({ question, currentAnswer, language, onChan
             aria-checked={isSelected}
             className={`
               group w-full text-left px-5 py-4 rounded-2xl border-2
-              transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30
+              transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/30
               ${isSelected
-                ? 'border-primary bg-primary/8 text-primary shadow-md shadow-primary/10'
-                : 'border-border bg-card/50 text-foreground hover:border-primary/40 hover:bg-card hover:shadow-sm'
+                ? 'border-secondary bg-primary/25 dark:bg-primary/15 text-foreground shadow-md shadow-secondary/10'
+                : 'border-border bg-card/50 text-foreground hover:border-secondary/60 hover:bg-card hover:shadow-sm'
               }
             `}
           >
@@ -37,8 +37,8 @@ export const SingleChoiceQuestion = ({ question, currentAnswer, language, onChan
                 w-5 h-5 rounded-full border-2 flex-shrink-0 flex items-center justify-center
                 transition-all duration-300
                 ${isSelected
-                  ? 'border-primary'
-                  : 'border-muted-foreground/50 group-hover:border-primary/50'
+                  ? 'border-secondary'
+                  : 'border-muted-foreground/50 group-hover:border-secondary/60'
                 }
               `}>
                 {isSelected && (
@@ -46,7 +46,7 @@ export const SingleChoiceQuestion = ({ question, currentAnswer, language, onChan
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-                    className="w-2.5 h-2.5 rounded-full bg-primary"
+                    className="w-2.5 h-2.5 rounded-full bg-secondary"
                   />
                 )}
               </div>

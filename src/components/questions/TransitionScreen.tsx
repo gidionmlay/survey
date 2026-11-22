@@ -27,14 +27,14 @@ const stageIcons: Record<string, React.ReactNode> = {
 };
 
 const stageColors: Record<string, string> = {
-  reflection:  'text-teal-600 bg-teal-500/10 border-teal-500/20',
-  exploration: 'text-blue-600 bg-blue-500/10 border-blue-500/20',
-  vision:      'text-amber-600 bg-amber-500/10 border-amber-500/20',
+  reflection:  'text-secondary bg-primary/30 border-secondary/30 dark:text-primary dark:bg-primary/15',
+  exploration: 'text-foreground bg-accent/40 border-accent/60 dark:text-accent dark:bg-accent/15',
+  vision:      'text-foreground bg-energy/35 border-energy/60 dark:text-energy dark:bg-energy/15',
 };
 
 export const TransitionScreen = ({ question, language, onContinue }: Props) => {
   const lines = question.title[language].split('\n\n');
-  const colorClass = stageColors[question.stage] ?? 'text-primary bg-primary/10 border-primary/20';
+  const colorClass = stageColors[question.stage] ?? 'text-secondary bg-primary/25 border-secondary/20';
   const icon = stageIcons[question.stage] ?? (
     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -87,9 +87,10 @@ export const TransitionScreen = ({ question, language, onContinue }: Props) => {
         onClick={onContinue}
         className="
           mt-12 inline-flex items-center gap-2 px-8 py-3.5
-          bg-primary/10 hover:bg-primary hover:text-white text-primary
+          bg-secondary/15 hover:bg-secondary hover:text-secondary-foreground text-secondary
+          dark:bg-secondary/30 dark:text-primary dark:hover:bg-secondary dark:hover:text-secondary-foreground
           rounded-full font-medium text-base transition-all duration-300
-          focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30
+          focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/30
           group
         "
       >

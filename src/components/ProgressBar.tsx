@@ -18,17 +18,17 @@ function isSurveyStage(value: string): value is SurveyStage {
 
 // Dot colors per stage for the stage indicator pips
 const STAGE_COLORS: Record<SurveyStage, string> = {
-  awareness:   'bg-indigo-400',
-  reflection:  'bg-teal-400',
-  exploration: 'bg-blue-400',
-  vision:      'bg-amber-400',
+  awareness:   'bg-secondary',
+  reflection:  'bg-secondary/80',
+  exploration: 'bg-accent',
+  vision:      'bg-energy',
 };
 
 const STAGE_TEXT_COLORS: Record<SurveyStage, string> = {
-  awareness:   'text-indigo-500',
-  reflection:  'text-teal-600',
-  exploration: 'text-blue-500',
-  vision:      'text-amber-500',
+  awareness:   'text-secondary dark:text-primary',
+  reflection:  'text-secondary dark:text-primary',
+  exploration: 'text-foreground/80 dark:text-accent',
+  vision:      'text-foreground/80 dark:text-energy',
 };
 
 export const ProgressBar: React.FC = () => {
@@ -70,7 +70,7 @@ export const ProgressBar: React.FC = () => {
       </AnimatePresence>
 
       {/* Progress track */}
-      <div className="h-1 w-full bg-secondary/40 rounded-full overflow-hidden">
+      <div className="h-1 w-full bg-primary/40 dark:bg-white/10 rounded-full overflow-hidden">
         <motion.div
           className={`h-full rounded-full ${STAGE_COLORS[stage]}`}
           initial={false}

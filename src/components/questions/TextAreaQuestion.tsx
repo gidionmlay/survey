@@ -18,7 +18,7 @@ export const TextAreaQuestion = ({ question, language, localText, setLocalText }
         onChange={(e) => setLocalText(e.target.value)}
         className="
           w-full min-h-[160px] p-5 bg-card/50 border-2 border-border rounded-2xl
-          focus:outline-none focus:border-primary focus:bg-card
+          focus:outline-none focus:border-secondary focus:bg-card
           resize-none transition-all duration-300
           text-base md:text-lg font-light leading-relaxed text-foreground
           placeholder:text-muted-foreground/60

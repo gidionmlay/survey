@@ -40,10 +40,10 @@ export const BooleanTextQuestion = ({
               aria-checked={isSelected}
               className={`
                 flex-1 py-5 rounded-2xl border-2 text-center text-lg font-light
-                transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30
+                transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/30
                 ${isSelected
-                  ? 'border-primary bg-primary/8 text-primary shadow-md shadow-primary/10'
-                  : 'border-border bg-card/50 text-foreground hover:border-primary/40 hover:bg-card'
+                  ? 'border-secondary bg-primary/25 dark:bg-primary/15 text-foreground shadow-md shadow-secondary/10'
+                  : 'border-border bg-card/50 text-foreground hover:border-secondary/60 hover:bg-card'
                 }
               `}
             >
@@ -76,7 +76,7 @@ export const BooleanTextQuestion = ({
                 onChange={(e) => setLocalText(e.target.value)}
                 className="
                   w-full min-h-[120px] p-5 bg-card/50 border-2 border-border rounded-2xl
-                  focus:outline-none focus:border-primary focus:bg-card
+                  focus:outline-none focus:border-secondary focus:bg-card
                   resize-none transition-all duration-300
                   text-base font-light leading-relaxed text-foreground
                   placeholder:text-muted-foreground/60

@@ -44,12 +44,12 @@ export const MultiChoiceQuestion = ({ question, currentAnswer, language, onChang
             aria-disabled={isDisabled}
             className={`
               group w-full text-left px-5 py-4 rounded-2xl border-2
-              transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/30
+              transition-all duration-300 focus:outline-none focus-visible:ring-4 focus-visible:ring-secondary/30
               ${isSelected
-                ? 'border-primary bg-primary/8 text-primary shadow-md shadow-primary/10'
+                ? 'border-secondary bg-primary/25 dark:bg-primary/15 text-foreground shadow-md shadow-secondary/10'
                 : isDisabled
                   ? 'border-border/40 bg-card/30 text-muted-foreground/50 cursor-not-allowed'
-                  : 'border-border bg-card/50 text-foreground hover:border-primary/40 hover:bg-card hover:shadow-sm'
+                  : 'border-border bg-card/50 text-foreground hover:border-secondary/60 hover:bg-card hover:shadow-sm'
               }
             `}
           >
@@ -59,10 +59,10 @@ export const MultiChoiceQuestion = ({ question, currentAnswer, language, onChang
                 w-5 h-5 rounded-md border-2 flex-shrink-0 flex items-center justify-center
                 transition-all duration-300
                 ${isSelected
-                  ? 'border-primary bg-primary'
+                  ? 'border-secondary bg-secondary'
                   : isDisabled
                     ? 'border-muted-foreground/30'
-                    : 'border-muted-foreground/50 group-hover:border-primary/50'
+                    : 'border-muted-foreground/50 group-hover:border-secondary/60'
                 }
               `}>
                 {isSelected && (
@@ -70,7 +70,7 @@ export const MultiChoiceQuestion = ({ question, currentAnswer, language, onChang
                     initial={{ scale: 0, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ type: 'spring', stiffness: 500, damping: 25 }}
-                    className="w-3 h-3 text-white"
+                    className="w-3 h-3 text-secondary-foreground"
                     viewBox="0 0 12 12"
                     fill="none"
                     stroke="currentColor"
@@ -104,7 +104,7 @@ export const MultiChoiceQuestion = ({ question, currentAnswer, language, onChang
               : `Chagua hadi ${question.maxSelect}`}
           </p>
           <p className={`text-sm font-medium transition-colors ${
-            atMax ? 'text-primary' : 'text-muted-foreground'
+            atMax ? 'text-secondary dark:text-primary' : 'text-muted-foreground'
           }`}>
             {selected.length}/{question.maxSelect}
           </p>

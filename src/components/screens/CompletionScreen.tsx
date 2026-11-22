@@ -152,7 +152,7 @@ export const CompletionScreen: React.FC = () => {
           </h2>
           <button
             onClick={() => submitData(true)}
-            className="px-8 py-3 bg-primary/10 text-primary rounded-full text-lg font-medium transition-all duration-300 hover:bg-primary/20"
+            className="px-8 py-3 bg-secondary/15 text-secondary rounded-full text-lg font-medium transition-all duration-300 hover:bg-secondary hover:text-secondary-foreground dark:bg-secondary/30 dark:text-primary"
           >
             {language === 'en' ? 'Try Again' : 'Jaribu Tena'}
           </button>
@@ -165,13 +165,13 @@ export const CompletionScreen: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="flex flex-col items-center justify-center min-h-[70vh] max-w-2xl mx-auto px-6 text-center"
         >
-          <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mb-8">
-            <svg className="w-10 h-10 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <div className="w-20 h-20 bg-accent/45 dark:bg-accent/20 rounded-full flex items-center justify-center mb-8">
+            <svg className="w-10 h-10 text-foreground dark:text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-light text-accent mb-8 tracking-tight">
+          <h1 className="text-4xl md:text-5xl font-light text-foreground mb-8 tracking-tight">
             {titleText}
           </h1>
 
@@ -186,7 +186,7 @@ export const CompletionScreen: React.FC = () => {
               localStorage.removeItem('cadence_survey_state');
               window.location.reload();
             }}
-            className="px-10 py-4 bg-primary text-primary-foreground rounded-full text-lg font-medium transition-all duration-300 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary"
+            className="px-10 py-4 bg-energy text-energy-foreground rounded-full text-lg font-semibold transition-all duration-300 hover:bg-energy/90 hover:shadow-lg hover:shadow-energy/25 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-energy"
           >
             {t.finish}
           </button>

@@ -9,12 +9,12 @@ import { CompletionScreen } from './components/screens/CompletionScreen';
 import { questions } from './data/questions';
 import type { SurveyStage } from './types/survey';
 
-// Stage → background theme mapping (new stage names)
+// Stage → background theme mapping aligned with brand palette
 const STAGE_THEMES: Record<SurveyStage, string> = {
-  awareness:   'bg-indigo-50/30 dark:bg-indigo-950/20',
-  reflection:  'bg-teal-50/30 dark:bg-teal-950/20',
-  exploration: 'bg-blue-50/30 dark:bg-blue-950/20',
-  vision:      'bg-amber-50/30 dark:bg-amber-950/20',
+  awareness:   'bg-primary/20 dark:bg-primary/10',
+  reflection:  'bg-secondary/10 dark:bg-secondary/15',
+  exploration: 'bg-accent/25 dark:bg-accent/10',
+  vision:      'bg-energy/20 dark:bg-energy/10',
 };
 
 function isSurveyStage(value: string): value is SurveyStage {

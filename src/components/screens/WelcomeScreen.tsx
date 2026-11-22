@@ -14,7 +14,7 @@ export const WelcomeScreen: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -24 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="flex flex-col items-center justify-center min-h-[75vh] max-w-2xl mx-auto px-4 md:px-6 text-center"
+      className="flex flex-col items-center justify-center min-h-[75vh] max-w-2xl mx-auto px-6 md:px-10 py-10 text-center rounded-3xl bg-primary/25 dark:bg-primary/10 border border-primary/50 dark:border-primary/20 shadow-sm"
     >
       {/* Wordmark / logo area */}
       <motion.div
@@ -23,10 +23,10 @@ export const WelcomeScreen: React.FC = () => {
         transition={{ delay: 0.1, duration: 0.6 }}
         className="mb-2"
       >
-        <p className="text-xs font-semibold tracking-[0.3em] uppercase text-primary/70 mb-4">
+        <p className="text-xs font-semibold tracking-[0.3em] uppercase text-secondary dark:text-primary mb-4">
           Cadence
         </p>
-        <h1 className="text-4xl md:text-6xl font-light text-accent tracking-tight leading-tight">
+        <h1 className="text-4xl md:text-6xl font-light text-foreground tracking-tight leading-tight">
           {t.title}
         </h1>
       </motion.div>
@@ -66,11 +66,11 @@ export const WelcomeScreen: React.FC = () => {
           onClick={nextStep}
           className="
             group relative inline-flex items-center justify-center
-            px-10 py-4 bg-primary text-white rounded-full
-            text-base font-medium tracking-wide
+            px-10 py-4 bg-energy text-energy-foreground rounded-full
+            text-base font-semibold tracking-wide
             transition-all duration-300
-            hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/25
-            focus:outline-none focus-visible:ring-4 focus-visible:ring-primary/40
+            hover:bg-energy/90 hover:shadow-xl hover:shadow-energy/30
+            focus:outline-none focus-visible:ring-4 focus-visible:ring-energy/50
             overflow-hidden
           "
         >
