@@ -1,12 +1,12 @@
 export const translations = {
   en: {
     welcome: {
-      title: 'The Rhythm of Money',
-      subtitle: 'A reflective experience by Cadence',
+      title: 'Your Money, Has a Story',
+      subtitle: 'A little space to reflect on your relationship with money.',
       description:
-        'Money is more than numbers.\n\nIt carries emotion, memory, and meaning — woven into the everyday choices we make.\n\nThis short experience explores your relationship with money: not to judge, but to understand.\n\nThere are no right or wrong answers.\nJust your honest experience.',
+        'Money is part of our everyday lives. It shapes the choices we make, the things we value, and how we plan for tomorrow.\n\nWe\'d like to understand how you experience money — your habits, your thoughts, and the little decisions that shape your financial life.\n\nThere are no right or wrong answers. Just take your time and share what feels true to you.',
       begin: 'Begin my reflection',
-      tagline: '~8 minutes · Private & confidential',
+      tagline: 'About 2 minutes · Your responses are treated confidentially',
     },
     nameScreen: {
       question: 'Before we begin — what should we call you?',
@@ -14,9 +14,9 @@ export const translations = {
       next: 'Continue',
     },
     emailScreen: {
-      question: 'Where can we reach you with insights from this experience?',
+      question: 'Nice to meet you, {firstName}! Where can we send your insights when they\'re ready?',
       placeholder: 'your@email.com',
-      helper: 'Completely optional. Your responses remain private.',
+      helper: 'Totally optional — zero spam, and your answers stay completely private.',
       next: 'Continue',
       skip: 'Skip for now',
     },
@@ -47,12 +47,12 @@ export const translations = {
   },
   sw: {
     welcome: {
-      title: 'Mwenendo wa Pesa',
-      subtitle: 'Uzoefu wa kutafakari na Cadence',
+      title: 'Pesa Yako, Ina Simulizi',
+      subtitle: 'Nafasi fupi ya kutafakari uhusiano wako na pesa.',
       description:
-        'Pesa ni zaidi ya nambari.\n\nInabeba hisia, kumbukumbu, na maana — imefumwa katika maamuzi ya kila siku tunayofanya.\n\nUzoefu huu mfupi unachunguza uhusiano wako na pesa: si kukuhukumu, bali kuelewa.\n\nHakuna majibu sahihi au makosa.\nNi uzoefu wako wa kweli tu.',
+        'Pesa ni sehemu ya maisha yetu ya kila siku. Inaongoza maamuzi tunayofanya, vitu tunavyothamini, na jinsi tunavyopanga kwa ajili ya kesho.\n\nTungependa kuelewa jinsi unavyopitia masuala ya pesa — tabia zako, mawazo yako, na maamuzi madogo yanayojenga maisha yako ya kifedha.\n\nHakuna majibu sahihi au makosa. Chukua muda wako na ushiriki kile kinachohisi kweli kwako.',
       begin: 'Anza tafakari yangu',
-      tagline: '~dakika 8 · Ya siri na ya kibinafsi',
+      tagline: '~dakika 2 · Majibu yako yanachukuliwa kwa usiri mkubwa',
     },
     nameScreen: {
       question: 'Kabla hatujaanza — tukwite nani?',
@@ -60,9 +60,9 @@ export const translations = {
       next: 'Endelea',
     },
     emailScreen: {
-      question: 'Tunaweza kukupata wapi na maarifa kutoka kwa uzoefu huu?',
+      question: 'Tumefurahi kukufahamu, {firstName}! Tukutumie wapi maarifa yako yakiwa tayari?',
       placeholder: 'barua@pepe.com',
-      helper: 'Hiari kabisa. Majibu yako yatabaki kuwa ya siri.',
+      helper: 'Ni hiari kabisa — hakuna usumbufu, na majibu yako yanabaki kuwa ya siri.',
       next: 'Endelea',
       skip: 'Ruka kwa sasa',
     },

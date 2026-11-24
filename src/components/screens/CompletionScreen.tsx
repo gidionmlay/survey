@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { AlertCircle } from 'lucide-react';
 import { submitSurvey } from '../../services/api';
 import { questions } from '../../data/questions';
+import { personalizeText } from '../../lib/utils';
 
 interface BooleanAnswer {
   choice: string;
@@ -111,7 +112,7 @@ export const CompletionScreen: React.FC = () => {
     submitData();
   }, [submitData]);
 
-  const titleText = t.title.replace('{firstName}', firstName || '');
+  const titleText = personalizeText(t.title, firstName);
 
   return (
     <AnimatePresence mode="wait">

@@ -23,9 +23,6 @@ export const WelcomeScreen: React.FC = () => {
         transition={{ delay: 0.1, duration: 0.6 }}
         className="mb-2"
       >
-        <p className="text-xs font-semibold tracking-[0.3em] uppercase text-secondary dark:text-primary mb-4">
-          Cadence
-        </p>
         <h1 className="text-4xl md:text-6xl font-light text-foreground tracking-tight leading-tight">
           {t.title}
         </h1>

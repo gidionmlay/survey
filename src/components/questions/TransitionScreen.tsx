@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import type { Question, Language } from '../../types/survey';
+import { useSurvey } from '../../context/SurveyContext';
+import { personalizeText } from '../../lib/utils';
 
 interface Props {
   question: Question;
@@ -33,7 +35,8 @@ const stageColors: Record<string, string> = {
 };
 
 export const TransitionScreen = ({ question, language, onContinue }: Props) => {
-  const lines = question.title[language].split('\n\n');
+  const { firstName } = useSurvey();
+  const lines = personalizeText(question.title[language], firstName).split('\n\n');
   const colorClass = stageColors[question.stage] ?? 'text-secondary bg-primary/25 border-secondary/20';
   const icon = stageIcons[question.stage] ?? (
     <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

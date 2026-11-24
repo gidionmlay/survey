@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { useSurvey } from '../../context/SurveyContext';
 import { translations } from '../../i18n/translations';
+import { personalizeText } from '../../lib/utils';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
 export const EmailScreen: React.FC = () => {
-  const { language, email, setEmail, nextStep } = useSurvey();
+  const { language, firstName, email, setEmail, nextStep } = useSurvey();
   const t = translations[language].emailScreen;
   const [error, setError] = useState('');
 
@@ -45,7 +46,7 @@ export const EmailScreen: React.FC = () => {
       className="flex flex-col justify-center min-h-[60vh] max-w-xl mx-auto px-6"
     >
       <h2 className="text-3xl md:text-4xl font-light text-foreground mb-4">
-        {t.question}
+        {personalizeText(t.question, firstName)}
       </h2>
       <p className="text-muted-foreground mb-12 font-light">
         {t.helper}

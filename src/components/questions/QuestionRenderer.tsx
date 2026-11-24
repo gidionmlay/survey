@@ -11,6 +11,7 @@ import { TextAreaQuestion } from './TextAreaQuestion';
 import { TransitionScreen } from './TransitionScreen';
 import { TransitionMessage } from './TransitionMessage';
 import { translations } from '../../i18n/translations';
+import { personalizeText } from '../../lib/utils';
 
 // ── Type guards ───────────────────────────────────────────────────────────────
 
@@ -172,7 +173,7 @@ export const QuestionRenderer: React.FC<Props> = ({ question }) => {
   // ── Text interpolation ────────────────────────────────────────────────────
 
   const interpolate = (text: string) =>
-    text.replace('{firstName}', firstName || '');
+    personalizeText(text, firstName);
 
   const questionTitle = interpolate(question.title[language]);
   const questionSubtitle = question.subtitle ? interpolate(question.subtitle[language]) : null;

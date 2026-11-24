@@ -30,12 +30,12 @@ export const questions: Question[] = [
     stage: 'awareness',
     emotionalTone: 'grounding',
     title: {
-      en: 'How would you describe your relationship with money right now?',
-      sw: 'Kwa sasa, ungeelezeaje uhusiano wako na pesa?',
+      en: '{firstName}, if your relationship with money had a mood right now, how would you describe it?',
+      sw: '{firstName}, kama uhusiano wako na pesa ungekuwa na hisia fulani sasa hivi, ungeuelezeaje?',
     },
     subtitle: {
-      en: 'There\'s no right or wrong answer here — just your honest feeling.',
-      sw: 'Hakuna jibu sahihi au baya — ni hisia yako halisi tu.',
+      en: 'No judgment and no right answers here — just how it genuinely feels today.',
+      sw: 'Hakuna hukumu wala jibu baya hapa — ni jinsi unavyojisikia kwa kweli leo.',
     },
     options: [
       { id: 'q1_calm',    label: { en: 'Calm and grounded',               sw: 'Utulivu na nina udhibiti' } },
@@ -52,8 +52,8 @@ export const questions: Question[] = [
     stage: 'awareness',
     emotionalTone: 'orientation',
     title: {
-      en: 'Which statement feels most like your current financial reality, {firstName}?',
-      sw: 'Ni kauli ipi inaelezea vizuri hali yako ya kifedha kwa sasa, {firstName}?',
+      en: 'Which of these feels closest to your money reality at the moment, {firstName}?',
+      sw: 'Ni kauli ipi inalingana zaidi na uhalisia wako wa kifedha kwa sasa, {firstName}?',
     },
     options: [
       { id: 'q2_control',  label: { en: 'I have a clear picture of where my money goes',  sw: 'Nina picha wazi ya matumizi yangu ya kila mwezi' } },
@@ -69,8 +69,8 @@ export const questions: Question[] = [
     stage: 'awareness',
     emotionalTone: 'habit-orientation',
     title: {
-      en: 'How do you usually keep track of what you spend?',
-      sw: 'Kwa kawaida unafuatiliaje matumizi yako ya kila siku?',
+      en: 'Be honest, {firstName} — how do you usually keep tabs on what you spend?',
+      sw: 'Tuambiane ukweli, {firstName} — kwa kawaida unafuatiliaje matumizi yako?',
     },
     options: [
       { id: 'q3_mental',    label: { en: 'I keep a mental note',              sw: 'Naweka kumbukumbu kichwani' } },
@@ -89,8 +89,8 @@ export const questions: Question[] = [
     stage: 'reflection',
     emotionalTone: 'bridge',
     title: {
-      en: 'Thank you for sharing that.\n\nNow let\'s gently explore the moments when money feels most challenging.',
-      sw: 'Asante kwa kuwa mkweli.\n\nSasa hebu tuangazie kwa upole zile nyakati ambapo masuala ya kifedha huwa na changamoto zaidi.',
+      en: 'Thanks for warming up with us, {firstName}.\n\nNow let\'s take a calm peek at the moments when money feels a bit trickier.',
+      sw: 'Asante kwa kuanza nasi kwa uwazi, {firstName}.\n\nSasa hebu tutazame kwa upole zile nyakati ambapo mambo ya pesa yanakuwa na changamoto kidogo.',
     },
   },
 
@@ -106,12 +106,12 @@ export const questions: Question[] = [
     emotionalTone: 'pattern-recognition',
     required: true,
     title: {
-      en: 'Which of these experiences feels most familiar right now?',
-      sw: 'Ni yapi kati ya haya yanayoelezea zaidi hali unayopitia sasa?',
+      en: 'Which of these moments feel a little too familiar lately, {firstName}?',
+      sw: 'Ni yapi kati ya haya yanayokugusa zaidi siku za hivi karibuni, {firstName}?',
     },
     subtitle: {
-      en: 'Select all that resonate — you can choose up to 3.',
-      sw: 'Chagua yote yanayokugusa — unaweza kuchagua hadi 3.',
+      en: 'Pick up to 3 that resonate — we\'ve all been there.',
+      sw: 'Chagua hadi 3 zinazokugusa — sote tumewahi kupitia haya.',
     },
     options: [
       { id: 'q4_debt',      label: { en: 'Managing ongoing debt',               sw: 'Shinikizo la kulipa madeni' } },
@@ -141,8 +141,8 @@ export const questions: Question[] = [
     required: true,
     emotionalTone: 'stress-calibration',
     title: {
-      en: 'How would you describe the impact of financial pressure on your daily life?',
-      sw: 'Kwa sasa, masuala ya kifedha yanaathiri vipi amani yako ya moyo na maisha ya kila siku?',
+      en: '{firstName}, how much headspace does money stress take up in your day-to-day life?',
+      sw: '{firstName}, mawazo ya pesa yanachukua nafasi kubwa kiasi gani kwenye amani yako ya kila siku?',
     },
     helperText: {
       en: 'Tap the number that feels most true to you right now.',
@@ -163,8 +163,8 @@ export const questions: Question[] = [
     stage: 'reflection',
     emotionalTone: 'moment-recall',
     title: {
-      en: '{firstName}, do you ever experience that sudden realization of, "Wait, where did my money go?"',
-      sw: '{firstName}, umewahi kushtuka na kujiuliza, "Hivi pesa yangu imeishaje?"',
+      en: 'Tell us, {firstName} — have you ever checked your balance and thought, "Wait... did my money just vanish?"',
+      sw: 'Niambie, {firstName} — umewahi kuangalia salio lako na kushtuka, "Hivi pesa yangu imeyeyuka vipi?"',
     },
     subtitle: {
       en: 'It\'s a deeply common experience — you\'re not alone in feeling this way.',
@@ -190,8 +190,8 @@ export const questions: Question[] = [
     stage: 'reflection',
     emotionalTone: 'frequency-check',
     title: {
-      en: 'As the month comes to a close, how do you typically feel about your standing?',
-      sw: 'Kila mwezi unapokaribia kuisha, huwa unajisikiaje kuhusu hali yako ya kifedha?',
+      en: 'When the end of the month rolls around, how are things usually looking for you, {firstName}?',
+      sw: 'Mwisho wa mwezi unapofika, hali huwa inakuwaje upande wako, {firstName}?',
     },
     options: [
       { id: 'q7_rarely',   label: { en: 'Grounded and secure',                         sw: 'Nakuwa imara na salama' } },
@@ -208,8 +208,8 @@ export const questions: Question[] = [
     stage: 'exploration',
     emotionalTone: 'bridge',
     title: {
-      en: 'Thank you for reflecting on that.\n\nNow, let\'s look closer at the habits and deeper feelings connected to your financial rhythm.',
-      sw: 'Asante sana kwa kutafakari hili kwa kina.\n\nSasa, hebu tuangazie zaidi tabia na hisia zinazoathiri mwenendo wako wa kifedha.',
+      en: 'You\'re doing great, {firstName}.\n\nNext, let\'s look a little closer at the habits and feelings behind your money rhythm.',
+      sw: 'Unafanya vizuri sana, {firstName}.\n\nSasa tuangalie kwa karibu kidogo tabia na hisia zinazoongoza mwenendo wako wa pesa.',
     },
   },
 
@@ -224,8 +224,8 @@ export const questions: Question[] = [
     stage: 'exploration',
     emotionalTone: 'emotional-response',
     title: {
-      en: 'Which emotions feel most present when you think about your finances right now?',
-      sw: 'Ni hisia zipi zinajitokeza zaidi unapofikiria hali yako ya kifedha sasa hivi?',
+      en: '{firstName}, when finances cross your mind today, which feelings show up first?',
+      sw: '{firstName}, unapowaza kuhusu pesa zako leo, ni hisia zipi hujitokeza kwanza?',
     },
     subtitle: {
       en: 'Choose up to 3 that feel most honest.',
@@ -259,8 +259,8 @@ export const questions: Question[] = [
     stage: 'exploration',
     emotionalTone: 'trigger-identification',
     title: {
-      en: 'When unplanned spending happens, what usually initiates it?',
-      sw: 'Unapofanya matumizi yasiyopangwa, huwa mara nyingi ni nini kimekuchochea?',
+      en: 'When a surprise purchase sneaks into your week, {firstName}, what usually sparks it?',
+      sw: 'Matumizi yasiyopangwa yanapojipenyeza kwenye wiki yako, {firstName}, huwa yanasababishwa na nini?',
     },
     options: [
       { id: 'q9_emotion',  label: { en: 'Seeking comfort during stressful moments',  sw: 'Kutafuta faraja wakati wa msongo' } },
@@ -278,8 +278,8 @@ export const questions: Question[] = [
     stage: 'exploration',
     emotionalTone: 'past-attempts',
     title: {
-      en: 'Looking back, how would you describe your past attempts to shift your financial habits?',
-      sw: 'Ukikumbuka nyuma, unaelezeaje juhudi zako za kubadili tabia zako za kifedha?',
+      en: 'Looking back, how have your past tries at changing your money habits gone, {firstName}?',
+      sw: 'Ukigeuka nyuma, majaribio yako ya kubadili tabia zako za pesa yaliendaje, {firstName}?',
     },
     options: [
       { id: 'q10_yes_worked',  label: { en: 'I found a rhythm that works for me',      sw: 'Nimepata mfumo unaonifaa' } },
@@ -305,8 +305,8 @@ export const questions: Question[] = [
     required: true,
     emotionalTone: 'clarity-confidence',
     title: {
-      en: 'At this moment in your life, how deep is your understanding of your financial flow?',
-      sw: 'Katika kipindi hiki cha maisha yako, unaelewa kwa kina kiasi gani kuhusu mtiririko wako wa kifedha?',
+      en: 'Quick check-in, {firstName} — how clearly do you feel you understand where your money flows right now?',
+      sw: 'Tuangalie kidogo, {firstName} — unaelewa kwa uwazi kiasi gani jinsi pesa zako zinavyoingia na kutoka sasa hivi?',
     },
     helperText: {
       en: 'Be honest — this helps us understand the gap between knowing and not knowing.',
@@ -328,8 +328,8 @@ export const questions: Question[] = [
     stage: 'vision',
     emotionalTone: 'bridge',
     title: {
-      en: 'You\'ve been incredibly insightful.\n\nFinally, let\'s look forward. Let\'s envision what financial clarity could look like for you.',
-      sw: 'Umeonyesha utambuzi mkubwa.\n\nMwisho, hebu tuangalie mbele. Tufikirie jinsi uwazi na amani ya kifedha inavyoweza kuwa kwako.',
+      en: 'Love your honesty, {firstName}.\n\nFor this last stretch, let\'s dream a little and picture what calm, clear finances could feel like for you.',
+      sw: 'Asante kwa ukweli wako, {firstName}.\n\nKwa hatua hii ya mwisho, hebu tutazame mbele na kuota kidogo kuhusu amani na uwazi wa kifedha unaoutamani.',
     },
   },
 
@@ -345,8 +345,8 @@ export const questions: Question[] = [
     required: true,
     emotionalTone: 'aspiration',
     title: {
-      en: 'Imagine a financial companion that genuinely understands you. What would it help you achieve?',
-      sw: 'Fikiria msaidizi wa kifedha anayekuelewa kikweli. Je, angekusaidia kufikia nini?',
+      en: 'Picture a calm, judgment-free money buddy, {firstName}. What would you want it to help you with first?',
+      sw: 'Fikiria ungekuwa na rafiki mtulivu wa kukusaidia mambo ya pesa bila kukuhukumu, {firstName}. Ungependa akusaidie nini kwanza?',
     },
     subtitle: {
       en: 'Choose up to 3 features that would actually change things for you.',
@@ -380,8 +380,8 @@ export const questions: Question[] = [
     required: true,
     emotionalTone: 'openness',
     title: {
-      en: 'How ready do you feel right now to gently shift your financial rhythms?',
-      sw: 'Unajisikia tayari kiasi gani kuanza kuboresha mwenendo wako wa kifedha?',
+      en: '{firstName}, how ready do you feel today to start nudging your money habits in a gentler direction?',
+      sw: '{firstName}, unajisikia tayari kiasi gani leo kuanza kuelekeza tabia zako za pesa kwenye njia tulivu zaidi?',
     },
     helperText: {
       en: 'No commitment — this helps us understand where you are right now.',
@@ -402,8 +402,8 @@ export const questions: Question[] = [
     stage: 'vision',
     emotionalTone: 'vision-self',
     title: {
-      en: 'If you were to experience greater financial harmony a year from now, what would be the most meaningful change in your life?',
-      sw: 'Endapo utapata utulivu zaidi wa kifedha mwaka mmoja kuanzia sasa, ni jambo gani litakalokuwa na maana zaidi kwenye maisha yako?',
+      en: 'Fast-forward a year from now, {firstName} — if money felt much calmer, what would feel sweetest about your life?',
+      sw: 'Tusogee mbele mwaka mmoja kuanzia sasa, {firstName} — kama pesa ingekuwa tulivu zaidi, ni kipi kingekupa furaha kubwa zaidi maishani?',
     },
     subtitle: {
       en: 'Pick what resonates most deeply with you.',
@@ -427,8 +427,8 @@ export const questions: Question[] = [
     emotionalTone: 'closure',
     required: false,
     title: {
-      en: 'As we close this reflection, {firstName}, is there anything else weighing on your mind or that you hope for your financial journey?',
-      sw: 'Tunapohitimisha tafakari hii, {firstName}, kuna jambo lingine lolote lililo moyoni mwako ambalo ungependa tulijue kuhusu safari yako ya kifedha?',
+      en: 'Last one, {firstName} — is there anything else on your mind or a wish you\'re holding for your money journey?',
+      sw: 'La mwisho, {firstName} — kuna jambo lingine lolote moyoni mwako au matumaini unayobeba kwa safari yako ya kifedha?',
     },
     subtitle: {
       en: 'This space is entirely yours to share freely.',
